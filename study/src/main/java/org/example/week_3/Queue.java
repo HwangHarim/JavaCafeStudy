@@ -15,11 +15,11 @@ public class Queue {
 
         public void add(T item){
             QueueNode t = new QueueNode(item);
-            if(last !=null){
+            if(last != null){
                 last.next = t;
             }
 
-            last =t;
+            last = t;
 
             if(first == null){
                 first = last;
