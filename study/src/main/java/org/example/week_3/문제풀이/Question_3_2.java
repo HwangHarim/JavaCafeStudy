@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class Question_3_2 {
     /**
-     * 스택 MIN : 기보적인 push pop 기능이 구현된 스태에서 최솟값을 반환하는 min 함수를 추가하려고 한다. 어떻게 설계할 수 있겠는가?
+     * 스택 MIN : 기본적인 push pop 기능이 구현된 스태에서 최솟값을 반환하는 min 함수를 추가하려고 한다. 어떻게 설계할 수 있겠는가?
      * push, pop, min연산은 모두 O(1)을시간에 동작해야한다.
      */
 
