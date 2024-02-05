@@ -12,13 +12,14 @@ public class Question_3_5 {
     //정렬 해보기
 
     static class SortStack <T>{
-        Stack<T> stackNew = new Stack<>();
-
-        void sort(Stack s){
-            Stack<T> r = new Stack<>();
-            int tmp = (int) s.pop();
-            while (!r.isEmpty() && (int)r.peek()>tmp){
-                s.push(r.pop());
+        void sort(Stack s) {
+            Stack<Integer> r = new Stack<>();
+            while(!s.isEmpty()){
+                int tmp = (int) s.pop();
+                while (!r.isEmpty() && (int) r.peek() > tmp) {
+                    s.push(r.pop());
+                }
+                r.push(tmp);
             }
             while(!r.isEmpty()){
                 s.push(r.pop());

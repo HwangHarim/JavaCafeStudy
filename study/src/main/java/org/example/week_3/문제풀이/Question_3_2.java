@@ -8,9 +8,6 @@ public class Question_3_2 {
      * push, pop, min연산은 모두 O(1)을시간에 동작해야한다.
      */
 
-    static class MinQueue{
-
-    }
 
     static class StackWithMin extends Stack {
         Stack s2;
