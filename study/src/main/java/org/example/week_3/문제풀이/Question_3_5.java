@@ -14,8 +14,6 @@ public class Question_3_5 {
     static class SortStack <T>{
         Stack<T> stackNew = new Stack<>();
 
-
-
         void sort(Stack s){
             Stack<T> r = new Stack<>();
             int tmp = (int) s.pop();

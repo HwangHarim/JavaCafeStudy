@@ -24,7 +24,7 @@ public class Question_3_3 {
 
         public void push(int v) {
             Stack last = getLastStack();
-            if (last != null && !last.isFull()) {
+            if (last != null) {
                 last.push(v);
             } else {
                 Stack stack = new Stack(capacity);
@@ -112,9 +112,9 @@ public class Question_3_3 {
             return size;
         }
 
-        public boolean isFull(){
-            return
-        }
+//        public boolean isFull(){
+//            return ;
+//        }
     }
 
     static class Node{
