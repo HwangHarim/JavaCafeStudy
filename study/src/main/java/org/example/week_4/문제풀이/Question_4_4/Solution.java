@@ -1,5 +1,6 @@
 package org.example.week_4.문제풀이.Question_4_4;
 
+
 import org.example.week_4.문제풀이.TreeNode;
 
 public class Solution {
@@ -11,12 +12,15 @@ public class Solution {
      *  왼쪽부분트리의 높이와 오른 쪽 부분 트리의 높이의 차이가 최대 하나인 트리를 의미한다.
      */
     public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        System.out.println(isBalanced(root.buildCompleteBinaryTree(5)));
 
     }
-    int checkHeight(TreeNode root) {
+    static int checkHeight(TreeNode root) {
         if (root == null) {
             return -1;
         }
+
         int leftHeight = checkHeight(root.left);
         if (leftHeight == Integer.MIN_VALUE) {
             return Integer.MIN_VALUE;
@@ -30,13 +34,13 @@ public class Solution {
 
         int heightDiff = leftHeight - rightHeight;
         if (Math.abs(heightDiff) > 1) {
-            return Integer.MIN_VALUE; // 에러 발견 • 반환 } else {
+            return Integer.MIN_VALUE; // 에러 발견 • 반환
         }else{
             return Math.max(leftHeight, rightHeight) + 1;
         }
     }
 
-    boolean isBalanced(TreeNode root) {
+    static boolean isBalanced(TreeNode root) {
         return checkHeight(root) != Integer.MIN_VALUE;
     }
 }

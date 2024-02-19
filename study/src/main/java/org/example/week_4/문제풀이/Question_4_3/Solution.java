@@ -2,7 +2,7 @@ package org.example.week_4.문제풀이.Question_4_3;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import org.example.week_4.문제풀이.TreeNode;
+import java.util.Queue;
 
 
 public class Solution {
@@ -12,27 +12,82 @@ public class Solution {
      * D개의 연 결리스트를 만들어야 한다.
      */
     public static void main(String[] args) {
+        TreeNode root = new TreeNode(0);
+
+        ArrayList<LinkedList<TreeNode>> list = createLevelLinkedList(root.buildCompleteBinaryTree(4));
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println("Level " + (i+1) + ":");
+            for (TreeNode node : list.get(i)) {
+                System.out.print(node.data + " ");
+            }
+            System.out.println();
+        }
 
     }
 
-    static void createLevelLinkedList(TreeNode root, ArrayList<LinkedList<TreeNode>> lists, int level) {
-        if (root == null) {
-            return; // 초기 사례
+
+    static ArrayList<LinkedList<TreeNode>> createLevelLinkedList(TreeNode root) {
+        ArrayList<LinkedList<TreeNode>> result = new ArrayList<>();/*루트 ’방문’ */
+        LinkedList<TreeNode> current = new LinkedList<>();
+        if (root != null) {
+            current.add(root);
         }
-        LinkedList list = null;
-        if (lists.size() == level) { // 리스트에 해당 레벨이 없다.
-            list = new LinkedList();
-            /* 갚이가 증가하는 순서로 순회했다는 사실에 유의하자. 따라서 깅이 #i를 처음
-             * 마주졌다연， 0부터 i-1번째까지는 이전에 이미 lists어| 추가되어야 한다.
-             * 따라서 새로운 갚이 #i를 lists21 끝에 추가해도 안전하다. */
-            lists.add(list);
+        while (current.size() > 0) {
+            result.add(current); // 이전 갚이 주가
+            LinkedList<TreeNode> parents = current;
+            current = new LinkedList<>();// 다음 current =new LinkedList();
+            for (TreeNode parent : parents) {
+                /* 자식 노드들 방문 */
+                if (parent.left != null) {
+                    current.add(parent.left);
+                }
+                if (parent.right != null) {
+                    current.add(parent.right);
+                }
+            }
+        }
+        return result;
+    }
 
-        } else {
-            list = lists.get(level);
-            list.add(root);
-            createLevelLinkedList(root.left, lists, level + 1);
-            createLevelLinkedList(root.right, lists, level + 1);
+    static class TreeNode {
+        public int data;
 
+       TreeNode left;
+       TreeNode right;
+       TreeNode parent;
+
+        public TreeNode(int data) {
+            this.data = data;
+        }
+        TreeNode buildCompleteBinaryTree(int level) {
+            Queue<TreeNode> nodes = new LinkedList<>();
+            int numNodes = (int) Math.pow(2, level) - 1;
+            for (int i = 1; i <= numNodes; i++) {
+                nodes.offer(new TreeNode(i));
+            }
+
+            TreeNode root = nodes.poll();
+            Queue<TreeNode> queue = new LinkedList<>();
+            queue.add(root);
+            while (!queue.isEmpty()) {
+                TreeNode node = queue.poll();
+                if (!nodes.isEmpty()) {
+                    node.left = nodes.poll();
+                    if (node.left != null) {
+                        node.left.parent = node;
+                        queue.add(node.left);
+                    }
+                }
+                if (!nodes.isEmpty()) {
+                    node.right = nodes.poll();
+                    if (node.right != null) {
+                        node.right.parent = node;
+                        queue.add(node.right);
+                    }
+                }
+            }
+            return root;
         }
     }
 }

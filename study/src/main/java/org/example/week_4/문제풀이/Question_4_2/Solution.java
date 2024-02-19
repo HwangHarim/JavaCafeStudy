@@ -1,8 +1,6 @@
 package org.example.week_4.문제풀이.Question_4_2;
 
 
-import org.example.week_4.문제풀이.TreeNode;
-
 public class Solution {
 
     /**
@@ -32,5 +30,17 @@ public class Solution {
         n.right = createMinimalBST(arr, mid+1, end);
 
         return n;
+    }
+
+    static class TreeNode {
+        public int data;
+
+        TreeNode left;
+        TreeNode right;
+        TreeNode parent;
+
+        public TreeNode(int data) {
+            this.data = data;
+        }
     }
 }

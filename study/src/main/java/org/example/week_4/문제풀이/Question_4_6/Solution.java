@@ -9,7 +9,32 @@ public class Solution {
      * 부모 노드를 가리키 는 링크가 존재한다고 가정하자.
      */
     public static void main(String[] args) {
+        TreeNode root = new TreeNode(20);
+        TreeNode node10 = new TreeNode(10);
+        TreeNode node30 = new TreeNode(30);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node15 = new TreeNode(15);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node7 = new TreeNode(7);
 
+        root.left = node10;
+        root.right = node30;
+        node10.parent = root;
+        node30.parent = root;
+
+        node10.left = node5;
+        node10.right = node15;
+        node5.parent = node10;
+        node15.parent = node10;
+
+        node5.left = node3;
+        node5.right = node7;
+        node3.parent = node5;
+        node7.parent = node5;
+
+
+        TreeNode successor = new Solution().inorderSucc(node15);
+        System.out.println(successor != null ? successor.data : "No Successor!");
     }
 
     TreeNode inorderSucc(TreeNode n) {
