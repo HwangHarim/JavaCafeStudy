@@ -1,7 +1,7 @@
 package org.example.week_4.문제풀이;
 
 public class TreeNode {
-    int data;
+    public int data;
 
     public TreeNode left;
     public TreeNode right;
