@@ -28,7 +28,8 @@ public class Solution {
 
 
     static ArrayList<LinkedList<TreeNode>> createLevelLinkedList(TreeNode root) {
-        ArrayList<LinkedList<TreeNode>> result = new ArrayList<>();/*루트 ’방문’ */
+        ArrayList<LinkedList<TreeNode>> result = new ArrayList<>();
+        /*루트 ’방문’ */
         LinkedList<TreeNode> current = new LinkedList<>();
         if (root != null) {
             current.add(root);

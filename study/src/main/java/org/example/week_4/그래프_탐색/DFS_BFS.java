@@ -24,7 +24,12 @@ public class DFS_BFS {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        //"4 5 1\n" +"1 2\n" +"1 3\n" +"1 4\n" +"2 4\n" +"3 4\n";
+        //"4 5 1\n"
+        // +"1 2\n"
+        // +"1 3\n"
+        // +"1 4\n"
+        // +"2 4\n"
+        // +"3 4\n"
 
         /**
          *  4
