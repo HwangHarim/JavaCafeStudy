@@ -50,7 +50,7 @@ public class Solution {
             int amountRemaining = amount - i * denomAmount;
             ways += makeChange2(amountRemaining, denoms, index + 1, map);
         }
-
+        map[amount][index] = ways;
         return ways;
     }
 }
