@@ -5,6 +5,17 @@ import java.util.ArrayList;
 public class Solution {
 
     //재귀
+    /*
+        [1,2,3]
+           |
+           [],
+           |
+           [],[3]
+           |
+           [],[2],[3],[2,3]
+           |
+           [],[1],[2],[3],[1,2],[1,3],[2,3],[1,2,3]
+     */
     ArrayList<ArrayList<Integer>> getSubsets(ArrayList<Integer> set, int index) {
         ArrayList<ArrayList<Integer>> allSubSets;
         if (set.size() == index) { // 조기 사례 - 공집합 추가
@@ -27,6 +38,7 @@ public class Solution {
         }
         return allSubSets;
     }
+
 
      /*
     집합 [1, 2, 3]의 모든 부분집합을 구하는 예를 들어보겠습니다.
@@ -55,6 +67,14 @@ public class Solution {
         ArrayList<Integer> subset = new ArrayList<>();
         int index = 0;
         for (int k = x; k > 0; k >>= 1) {
+
+            /*
+              11 (이진수로 3)
+            & 01 (이진수로 1)
+            ----------------
+              01 (결과는 1)
+
+            */
             if ((k & 1) == 1) {
                 subset.add(set.get(index));
             }
