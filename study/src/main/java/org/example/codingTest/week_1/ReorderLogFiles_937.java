@@ -12,9 +12,9 @@ public class ReorderLogFiles_937 {
             String[] a = log.split(" ");
             if(Character.isDigit(a[1].charAt(0))){
                 numbers.add(log);
-            } else{
-                words.add(log);
             }
+
+            words.add(log);
         }
 
         words.sort((o1, o2) -> {
@@ -23,11 +23,11 @@ public class ReorderLogFiles_937 {
 
             int compared = o1x[1].compareTo(o2x[1]);
 
-            if(compared ==0){
+            if(compared == 0){
                 return o1x[0].compareTo(o2x[0]);
-            }else{
-                return compared;
             }
+
+            return compared;
         });
 
         words.addAll(numbers);
