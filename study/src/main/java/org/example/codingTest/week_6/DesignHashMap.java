@@ -1,4 +1,4 @@
-package org.example.codingTest.week_5;
+package org.example.codingTest.week_6;
 
 public class DesignHashMap {
     static class Node {
